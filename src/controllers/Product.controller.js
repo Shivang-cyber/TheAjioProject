@@ -25,7 +25,9 @@ const updateProducts = async (req, reply) => {
 }
 
 const getProdz = async (req, reply) => {
-  const product = await Product.find({type:{$all:req.query.type}}).lean().exec()
+  let a = req.query.type.split('').slice(0,1).join('')
+  let b = req.query.type.split('').slice(1,req.query.type.length).join('')
+  const product = await Product.find({type:{$all:a+' '+b}}).lean().exec()
   // console.log(product);
   reply.view('/src/view/cat.ejs', { text: product })
 
