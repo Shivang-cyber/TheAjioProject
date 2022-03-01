@@ -3,7 +3,7 @@ const path = require('path')
 const {
   getProducts,
   addProducts,
-  getAllProduct,
+  getAllProduct,getProdz,
   updateProducts,
 } = require('../controllers/Product.controller')
 
@@ -23,6 +23,12 @@ const {
 } = require('../controllers/comment.controller')
 // const { default: fastifyStatic } = require('fastify-static')
 module.exports = fp(function productRoutes(fastify, options, done) {
+
+  fastify.get('/', (req, reply) => {
+    reply.view('/src/view/index.ejs', { text: 'texdat' })
+  })
+  fastify.get('/catologue',getProdz)
+
   fastify.get('/pr/:id', getProducts)
   fastify.post('/pr', addProducts)
   fastify.get('/pr/A', getAllProduct)

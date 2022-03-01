@@ -24,6 +24,13 @@ const updateProducts = async (req, reply) => {
   reply.send({ products })
 }
 
+const getProdz = async (req, reply) => {
+  const product = await Product.find({type:{$all:req.query.type}}).lean().exec()
+  // console.log(product);
+  reply.view('/src/view/cat.ejs', { text: product })
+
+}
+
 const getProducts = async (req, reply) => {
   const comment = await Comment.find({ product: { $all: req.params.id } })
     .populate('author')
@@ -38,4 +45,4 @@ const addProducts = async (req, reply) => {
   reply.send({ product })
 }
 
-module.exports = { getProducts, addProducts, getAllProduct, updateProducts }
+module.exports = { getProducts, addProducts, getAllProduct, updateProducts,getProdz }

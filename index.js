@@ -1,4 +1,4 @@
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3005
 require('dotenv').config()
 const fastify = require('fastify')({ logger: true })
 // const cors = require("cors")
@@ -16,9 +16,7 @@ fastify.register(require('point-of-view'), {
   },
 })
 
-fastify.get('/', (req, reply) => {
-  reply.view('/src/view/index.ejs', { text: 'texdat' })
-})
+
 
 
 fastify.register(require('fastify-static'), {
