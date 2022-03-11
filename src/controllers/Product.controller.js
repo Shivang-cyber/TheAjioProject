@@ -29,18 +29,17 @@ const getProdz = async (req, reply) => {
   let b = req.query.type.split('').slice(1,req.query.type.length).join('')
   const product = await Product.find({type:{$all:a+' '+b}}).lean().exec()
   // console.log(product);
-  reply.view('/src/view/cat.ejs', { text: product })
+  reply.view('/src/view/cat.ejs', { text: product,sr:req.query.type })
 
 }
 
 const getProducts = async (req, reply) => {
-  const comment = await Comment.find({ product: { $all: req.params.id } })
-    .populate('author')
-    .lean()
-    .exec()
-  const product = await Product.findById(req.params.id).lean().exec()
-  product.reviews = comment
-  reply.send({ product })
+  let a = req.query.type.split('').slice(0,1).join('')
+  let b = req.query.type.split('').slice(1,req.query.type.length).join('')
+  const aproduct = await Product.find({type:{$all:a+' '+b}}).lean().exec()
+
+  const product = await Product.findById(req.query.id).lean().exec()
+  reply.view('/src/view/pro.ejs', { text: product,sr:req.query.type,addon:aproduct })
 }
 const addProducts = async (req, reply) => {
   const product = await Product.create(req.body)

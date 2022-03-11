@@ -28,8 +28,8 @@ module.exports = fp(function productRoutes(fastify, options, done) {
     reply.view('/src/view/index.ejs', { text: 'texdat' })
   })
   fastify.get('/catologue',getProdz)
-
-  fastify.get('/pr/:id', getProducts)
+  fastify.get('/prod',getProducts)
+  // fastify.get('/pr/:id', getProducts)
   fastify.post('/pr', addProducts)
   fastify.get('/pr/A', getAllProduct)
   fastify.patch('/pr/:id', updateProducts)
