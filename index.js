@@ -4,25 +4,14 @@ const fastify = require('fastify')({ logger: true })
 // const cors = require("cors")
 const path = require('path')
 
-fastify.register(require('fastify-cors'), {
-  // put your options here
-  origin: '*',
-  methods: ['POST','GET'],
-})
+fastify.register(require('fastify-cors'), {  origin: '*',  methods: ['POST','GET']})
 
-fastify.register(require('point-of-view'), {
-  engine: {
-    ejs: require('ejs'),
-  },
-})
+fastify.register(require('point-of-view'), {  engine: {  ejs: require('ejs')}})
 
 
 
 
-fastify.register(require('fastify-static'), {
-  root: path.join(__dirname, 'src'),
-  wildcard: false,
-})
+fastify.register(require('fastify-static'), {  root: path.join(__dirname, 'src'),  wildcard: false})
 fastify.register(require('./src/Router/router'))
 
 fastify.listen(PORT, '0.0.0.0', (err) => {

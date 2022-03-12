@@ -6,7 +6,6 @@ const {
   getAllProduct,getProdz,
   updateProducts,
 } = require('../controllers/Product.controller')
-
 const {
   getClient,
   addClient,
@@ -21,22 +20,29 @@ const {
   updateOneComment,
   deleteOneComment,
 } = require('../controllers/comment.controller')
+// fastify.register(require('fastify-express'))
+const {register,login} = require("../controllers/auth.controller")
 // const { default: fastifyStatic } = require('fastify-static')
+const nam = require('../middleware/ran')
+const authenticate = require('../middleware/auth')
+
+
 module.exports = fp(function productRoutes(fastify, options, done) {
 
-  fastify.get('/', (req, reply) => {
-    reply.view('/src/view/index.ejs', { text: 'texdat' })
-  })
-  fastify.get('/catologue',getProdz)
+  fastify.get('/', (req, reply) =>   reply.view('/src/view/index.ejs', { text: 'texdat' }))
+  fastify.get('/catologue',{preHandler:[nam]},getProdz)
   fastify.get('/prod',getProducts)
   // fastify.get('/pr/:id', getProducts)
   fastify.post('/pr', addProducts)
-  fastify.get('/pr/A', getAllProduct)
+  fastify.get('/pr/A',{preHandler:[authenticate]}, getAllProduct)
   fastify.patch('/pr/:id', updateProducts)
-
+  //red zone
+fastify.post("/register",register)
+fastify.post("/login",login)
+  //red zone
   fastify.get('/cl/:id', getClient)
   fastify.get('/cl/A', getAllClient)
-  fastify.post('/cl', addClient)
+  fastify.post('/cl',{preHandler:[nam]}, addClient)
   fastify.patch('/cl/:id', updateOneClient)
   fastify.get('/cla/:id', addToCart)
   fastify.get('/pur/:id', purchaseAll)
