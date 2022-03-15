@@ -1,5 +1,5 @@
 const fp = require('fastify-plugin')
-const path = require('path')
+// const path = require('path')
 const {
   getProducts,
   addProducts,
@@ -26,20 +26,24 @@ const {register,login} = require("../controllers/auth.controller")
 const nam = require('../middleware/ran')
 const authenticate = require('../middleware/auth')
 
+const passport = require('../middleware/passport')
+
+passport.serializeUser(function({user,token},done){console.log(5555555555555), done(null, { user, token }) })
+
+passport.deserializeUser(function(user,done){done(err,user)})
+
 
 module.exports = fp(function productRoutes(fastify, options, done) {
-
-  fastify.get('/', (req, reply) =>   reply.view('/src/view/index.ejs', { text: 'texdat' }))
+  fastify.get('/', (req, reply) => {console.log(req.user);
+    reply.view('/src/view/index.ejs', { text: 'texdat',req:req })})
   fastify.get('/catologue',{preHandler:[nam]},getProdz)
   fastify.get('/prod',getProducts)
   // fastify.get('/pr/:id', getProducts)
   fastify.post('/pr', addProducts)
   fastify.get('/pr/A',{preHandler:[authenticate]}, getAllProduct)
   fastify.patch('/pr/:id', updateProducts)
-  //red zone
-fastify.post("/register",register)
-fastify.post("/login",login)
-  //red zone
+  fastify.post("/register",register)
+  fastify.post("/login",login)
   fastify.get('/cl/:id', getClient)
   fastify.get('/cl/A', getAllClient)
   fastify.post('/cl',{preHandler:[nam]}, addClient)
