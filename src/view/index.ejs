@@ -37,8 +37,14 @@
 </html>
 <style></style>
 <script>
-  
-</script>
+  var parsed = "<%= JSON.stringify(req) %>"
+  if(parsed!=""){
+    let nam = JSON.parse(parsed.split('&#34;').join('"'));
+    setTimeout(function(){
+      document.getElementById("sign_in_in").innerText = nam.name
+    }, 1000)
+  }
+  </script>
 
 <script type="module">
   // navbar
