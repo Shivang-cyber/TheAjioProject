@@ -11,7 +11,7 @@ function navbar() {
           </div>
           <div>
             <div id="top_bl_nav">
-              <a href="" style="color: rgb(44, 65, 82)" id="sign_in_in">Sign In / Join AJIO</a>
+              <a href="" style="color: rgb(44, 65, 82)">Sign In / Join AJIO</a>
               <a href="" style="color: rgb(44, 65, 82)">Customer Care</a>
               <a href="" id="luxe">Visit AJIOLUXE</a>
             </div>

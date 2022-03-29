@@ -33,17 +33,15 @@
       <div id="al" class="img_sl_in"></div>
       <div id="bla" class="img_sl_in_rep"><div id="cla" class="arr"></div></div>
     </section>
+    <section>
+      <%=req?.user?.displayName%>
+    </section>
   </body>
 </html>
 <style></style>
 <script>
-  // if(parsed!=""){
-  //   let nam = JSON.parse(parsed.split('&#34;').join('"'));
-  //   setTimeout(function(){
-  //     document.getElementById("sign_in_in").innerText = nam.name
-  //   }, 10000)
-  // }
-  </script>
+  
+</script>
 
 <script type="module">
   // navbar
@@ -54,3 +52,7 @@
   document.getElementById('sec_ban_mains').innerHTML = banner()
 </script>
 <script type="text/javascript" src="/view/public/js/slider.js"></script>
+<script>
+  let fell = "<%=req%>"
+  // console.log(fell.user.displayName);
+</script>

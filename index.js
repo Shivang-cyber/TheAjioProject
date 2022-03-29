@@ -1,7 +1,8 @@
 const PORT = process.env.PORT || 3006
 require('dotenv').config()
 const fastify = require('fastify')({ logger: true })
-
+// const cors = require("cors")
+// const path = require('path')
 
 fastify.register(require('fastify-cors'), {  origin: '*',  methods: ['POST','GET']})
 
@@ -51,7 +52,7 @@ fastify.get('/auth/google/callback',
 )
 
 fastify.get('/login',   {preValidation: fastifyPassport.authenticate('google',{scope:['email','profile']})},async (req,res) => {
-  res.send(req.user).redirect('/')
+  res.redirect('/')
 })
 
 fastify.get('/logout',

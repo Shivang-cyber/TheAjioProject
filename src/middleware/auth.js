@@ -28,7 +28,6 @@ async function authenticate(req, reply, next) {
       req.user = client
   
       // return next
-      // console.log(55555555555555555555555555555555555555);
       return next()
     } catch (err) {
       reply.status(400).send({ message: 'Please provide a valid bearer token' })
