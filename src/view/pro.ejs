@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Buy <%=text.name  %></title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -27,9 +27,7 @@
     />
 </head>
 <body>
-    <section id="nav">
-
-    </section>
+    <section id="nav"></section>
     <section id="det">
         <div id="imgmain">
             <div id="imgdis">
@@ -37,9 +35,22 @@
               
                 </div>
                 <div id="imgban">
+                  <div id="bot_box_a">
+                    <div> <i>Our model wears a Size Medium</i> </div>
+                    <div >
+                      <div id="bot_box_id">
+                        <div><h3>RETURNS</h3></div>
+                        <div><h3>OUR PROMISE</h3></div>
+                      </div>
+                      <div id="bot_box_b">
+                        <h3>
+                          Easy 15 days return and exchange. Return Policies may vary based on products and promotions. For full details on our Returns Policies, please click here․
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 </div>            
-                <div id="imgbott"></div>
         </div>
 
         </div>
@@ -49,8 +60,18 @@
           <h1>₹ <%=text.price%></h1>
           <div><h6>MRP ₹<%=+text.price+Math.floor(Math.random()*100)  %> </h6>(<%=Math.floor(Math.random()*100)  %>% OFF )<h6></h6></div>
           <h6>Price inclusive of all taxes</h6>
-          <div class="advert"></div>
-
+          <div class="advert"><img src="/view/stuff/proImg/bott_feeder.png" alt=""></div>
+          <button class="but_add" id="but_add">ADD TO BAG</button>
+          <h4>HANDPICKED STYLES | ASSURED QUALITY</h4>
+          <button class="but_add">SAVE TO CLOSET</button>
+          <ul><h6 id="pro_a">Product Details</h6>
+            <li>Colour transfer of dark-coloured products may occur during use due to friction and when handling while wet. Wash separately. Water repellency will gradually get lost by washing or cleaning</li>
+          <li>Tip : If you don't find an exact match, go for the next size</li>
+          <li>Regular Fit</li>
+          <li>Hand wash</li>
+          <li>Water-Resistant</li>
+          <li>Outer shell: 100% polyester, lining: 100% nylon</li>
+          <li>Product Code: <%=text._id  %></li></ul>
         </div>
     </section>
 
