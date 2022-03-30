@@ -22,10 +22,9 @@ async function authenticate(req, reply, next) {
     const token = bearerToken.split(' ')[1]
   
     try {
-      const { client } = await verifyToken(token)
-  
+      const  cl  = await verifyToken(token)
       // else we will attach the user to the req
-      req.user = client
+      req.user = cl
   
       // return next
       return next()

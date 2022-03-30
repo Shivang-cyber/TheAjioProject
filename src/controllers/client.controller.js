@@ -22,7 +22,6 @@ const addClient = async (req, reply) => {
   const client = await Client.create(req.body)
   reply.send({ client })
 }
-
 const updateOneClient = async (req, reply) => {
   const client = await Client.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
@@ -31,87 +30,25 @@ const updateOneClient = async (req, reply) => {
     .exec()
   reply.send({ client })
 }
-
 const addToCart = async (req, reply) => {
-  const plant = await Product.find().lean().exec()
-  const client = await Client.find({ mail: req.params.id })
-    .populate('in_cart.item liked.item purchased.item.item')
-    .lean()
-    .exec()
-  let C = client[0].in_cart
-  if (req.query.part == 'I') {
-    if (req.query.type == 'A') {
-      let T = true
-      for (let i = 0; i < C.length; i++) {
-        if (C[i].item._id.toString() == req.query.item) {
-          T = false
-          break
-        }
-      }
-      if (T == true) {
-        let o = {}
-        o['item'] = req.query.item
-        o['count'] = 1
-        C.push(o)
-      }
-    } else if (req.query.type == 'D') {
-      for (let i = 0; i < C.length; i++) {
-        if (C[i].item._id.toString() == req.query.item) {
-          client[0].in_cart.splice(i, 1)
-          break
-        }
-      }
-    } else if (req.query.type == 'P') {
-      for (let i = 0; i < C.length; i++) {
-        if (C[i].item._id.toString() == req.query.item) {
-          if (client[0].in_cart[i].count < 10) {
-            client[0].in_cart[i].count++
-          }
-          break
-        }
-      }
-    } else if (req.query.type == 'M') {
-      for (let i = 0; i < C.length; i++) {
-        if (C[i].item._id.toString() == req.query.item) {
-          if (client[0].in_cart[i].count != 1) {
-            client[0].in_cart[i].count--
-          }
-          break
-        }
-      }
-    }
-  } else if (req.query.part == 'L') {
-    let L = client[0].liked
-    if (req.query.type == 'A') {
-      for (let i = 0; i < L.length; i++) {
-        if (L[i].item._id.toString() == req.query.item) {
-          client[0].liked.splice(i, 1)
-          break
-        }
-      }
-      let o = { item: req.query.item }
-      L.push(o)
-    } else if (req.query.type == 'D') {
-      for (let i = 0; i < L.length; i++) {
-        if (L[i].item._id.toString() == req.query.item) {
-          client[0].liked.splice(i, 1)
-          break
-        }
-      }
+  const product = await Product.find({_id:req.query.item}).lean().exec()
+  const client = await Client.find({ mail: req.user.user.mail }).lean().exec()
+  let arr = client[0].in_cart,t = true
+  for(let i=0;i<arr.length;i++) {if(arr[i].item.toString()==product[0]._id.toString()){
+      t= false
+      break
     }
   }
-
-  let i = client[0]._id
-  i = i.toString()
-  const cl = await Client.findByIdAndUpdate(i, client[0], { new: true })
-    .lean()
-    .exec()
-
-  reply.send({ cl })
+  if(t)  arr.push({item:product[0]._id,count: 1})
+  client[0].in_cart = arr
+  const clien = await Client.findByIdAndUpdate(client[0]._id,client[0], {new: true})
+          .populate('in_cart.item liked.item purchased.item.item')
+          .lean()
+          .exec()
+  reply.send({ clien })  
 }
-
 const purchaseAll = async (req, reply) => {
-  const client = await Client.find({ mail: req.params.id })
+  const client = await Client.find({ mail: req.user.user.mail })
     .populate('in_cart.item liked.item purchased.item.item')
     .lean()
     .exec()
@@ -127,34 +64,8 @@ const purchaseAll = async (req, reply) => {
   date = date.toString().split(' ')
   //done
   let Price = 0
-  client[0].in_cart.map((a) => {
-    Price += a.item.price * a.count
-    let b = pr.filter((x) => x._id.toString() == a.item._id)
-
-    if (b[0].c < a.count) {
-      reply.send(`Please reduce ${b[0].name}'s quantity`)
-      return
-    }
-  })
+  client[0].in_cart.map((a) => { Price += a.item.price * a.count })
   let T = true
-  client[0].in_cart.forEach(async (a) => {
-    for (let i = 0; i < pr.length; i++) {
-      if (pr[i]._id.toString() == a.item._id) {
-        if (pr[i].c >= a.count) {
-          pr[i].c -= a.count
-        } else {
-          T = false
-        }
-
-        const p = await Product.findByIdAndUpdate(pr[i]._id.toString(), pr[i], {
-          new: true,
-        })
-          .populate('in_cart.item liked.item purchased.item.item')
-          .lean()
-          .exec()
-      }
-    }
-  })
   let O = {
     item: client[0].in_cart,
     price: Price,
