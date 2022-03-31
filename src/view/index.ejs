@@ -24,6 +24,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
       rel="stylesheet"
     />
+    <script src="https://kit.fontawesome.com/65118b08df.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -43,6 +44,14 @@
   setTimeout(function(){
  	document.getElementById("sign_in_in").innerText=" <%=req?.user?.displayName%>"
 }, 10000)
+function signUp() {
+ document.getElementById("bd").style.display = "block"
+ document.getElementById("backdrop").style.display = "block"
+}
+function cl() {
+  document.getElementById("bd").style.display = "none"
+ document.getElementById("backdrop").style.display = "none"
+}
 </script>
 
 <script type="module">

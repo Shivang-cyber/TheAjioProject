@@ -11,14 +11,31 @@ function navbar() {
           </div>
           <div>
             <div id="top_bl_nav">
-              <a href="" style="color: rgb(44, 65, 82)" id="sign_in_in">Sign In / Join AJIO</a>
+            <div id="backdrop" onClick="cl()"></div>
+            <div id="bd">
+            <section id="sec_a">
+            <i><button onClick="cl()" id="x"><i class="fa-solid fa-x"></i></button></i>
+            <h1>Welcome to AJIO</h1>
+            <h3>Join / Sign In using</h3>
+            <div><button onClick="cl()" id="fac"><i class="fa-brands fa-facebook-square"></i> FACEBOOK</button><button onClick="cl()" id="goo"><i class="fa-brands fa-google"></i> GOOGLE</button></div>
+            <p>or</p>
+            <h3>Enter Mobile Number / Email*</h3>
+            <input />
+            <h5><button onClick="mv()" id="sub_mov">CONTINUE</button></h5>
+            <h4>By Signing In, I agree to <p> Terms and Conditions.</p></h4>
+            </section>
+            <section id="sec_b">
+            <div></div>
+            </section>
+
+            </div>
+              <a href="#" style="color: rgb(44, 65, 82)" id="sign_in_in" onClick="signUp()">Sign In / Join AJIO</a>
               <a href="" style="color: rgb(44, 65, 82)">Customer Care</a>
               <a href="" id="luxe">Visit AJIOLUXE</a>
             </div>
             <div id="bot_bl_nav">
               <div>
                 <div class="drop_dow">
-                              <div class="backdrop"></div>
                   <button class="aa">MEN</button>
                   <div class="drop_menu">
                     <div class="drop_top"><div>Shop By:</div>
@@ -53,7 +70,6 @@ function navbar() {
                   </div>
                 </div>
                 <div class="drop_dow">
-                              <div class="backdrop"></div>
                   <button class="aa">WOMEN</button>
                   <div class="drop_menu">
                     <div class="drop_top"><div>Shop By:</div>
@@ -90,7 +106,6 @@ function navbar() {
                   </div>
                 </div>
                 <div class="drop_dow">
-                                              <div class="backdrop"></div>
                   <button class="aa">KIDS</button>
                   <div class="drop_menu">
                     <div class="drop_top"><div>Shop By:</div>
@@ -127,7 +142,6 @@ function navbar() {
                   </div>
                 </div>
                 <div class="drop_dow">
-                                              <div class="backdrop"></div>
                   <button class="aa">INDIE</button>
                   <div class="drop_menu">
                     <div class="drop_top"><div>Shop By:</div>
@@ -164,7 +178,6 @@ function navbar() {
                   </div>
                 </div>
                 <div class="drop_dow">
-                                              <div class="backdrop"></div>
                   <button class="aa">HOME & KITCHEN</button>
                   <div class="drop_menu">
                     <div class="drop_top"><div>Shop By:</div>

@@ -77,21 +77,127 @@ background-color: white;
   font-weight: 600;
 
 }
-.backdrop{
-  background-color: black;
-  opacity: 0.5;
+#backdrop{
   width: 100%;
-  top: 89px;
-  z-index: -10;
-  left:0;
-  position: fixed;
   height: 100vh;
-  display: none;
-}
-.drop_dow:hover .backdrop{
-  display: block;
-}
-.backdrop:hover {
+  position: fixed;
   background-color: black;
-  /* display: none; */
+  opacity: 0.4;
+  left: 0;
+  display:none;
+}
+#bd{
+  background-color: white;
+  width: 410px;
+  top: 20px;
+  opacity: 1;
+  z-index: 10;
+  position: fixed;
+  left: 50%;
+  height: 740px;
+  transform: translateX(-50%);
+  border: #3d4f5f 1px solid;
+  display:none;
+  flex-direction: column;
+}
+#sec_a{
+  height: 100%;
+}
+#sec_a>div{
+  display: flex;
+}
+#sec_a>i{
+  display: flex;
+
+justify-content: end;
+padding: 10px;
+}
+#x{
+border: none;
+background-color: unset;
+padding: 0px;
+}
+#sec_a>h1{
+  width: 80%;
+  padding:10%;
+  font-size: 22px;
+  font-weight: 700;
+}
+#sec_a>h3{
+  width: 80%;
+  padding: 10px;
+  padding-left:10%;
+  padding-right:10%;
+  font-size: 15px;
+}
+#sec_a>div{
+  display: flex;
+  padding-left:10%;
+  padding-right:10%;
+  justify-content: space-between;
+}
+
+#sec_a>div>button{
+  width: 48%;
+  height: 50px;
+  background-color: unset;
+}
+#sec_a>div>button>i{
+font-size: 20px;
+}
+#sec_a>p{
+  width: 100%;
+  text-align: center;
+  margin: 10px;
+}
+#sec_a>input{
+  background-color: unset;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  margin-top: 15px;
+  border: #e5e5e5 1px;
+  margin-bottom: 25px;
+  border-style: none none solid none;
+}
+#sec_a>h4{
+  width: 80%;
+  padding-left: 10%;
+  padding-top: 15px;
+  font-size: 15px;
+  display: flex;
+}
+#sec_a>h4>p{
+  color:#465d68 ;
+  margin-left: 3px;
+}
+#fac{
+  border: 3px #3b5998 solid;
+  color: #3b5998;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+#goo{
+  border: 3px #df4a32 solid;
+  color: #df4a32;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+#sec_a>h5{
+  margin-left: 10%;
+}
+#sub_mov{
+  background-color: #d5a249;
+  letter-spacing: 2px;
+  font-size: 17px;
+  border: none;
+  width: 48%;
+  height: 50px;
+}
+#sec_b{
+  background-color: orange;
+  height: 100%;
+  display: none;
 }
