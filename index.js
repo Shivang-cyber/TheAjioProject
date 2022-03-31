@@ -32,6 +32,8 @@ fastifyPassport.use('google', new GoogleStrategy({
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: "/auth/google/callback"
 }, function (accessToken,refreshToken,profile,cb) {
+    //profile can be acessed from here as well.
+    // console.log("->",profile, accessToken);
     cb(undefined, profile)
 }
 ))
@@ -51,7 +53,10 @@ fastify.get('/auth/google/callback',
     }
 )
 
-fastify.get('/login',   {preValidation: fastifyPassport.authenticate('google',{scope:['email','profile']})},async (req,res) => {
+
+fastify.get('/login',  
+ {preValidation: fastifyPassport.authenticate('google',{scope:['email','profile']})},
+ async (req,res) => {
   res.redirect('/')
 })
 
@@ -59,7 +64,6 @@ fastify.get('/logout',
     async(req,res) => {
         req.logout()
   res.redirect('/')
-
         return {success:true}
     }
 )

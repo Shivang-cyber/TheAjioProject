@@ -13,6 +13,7 @@ const register = async (req,reply) =>{
         if(client) reply.status(400).send({message:'Please check your username and password'})
         client = await Client.create(req.body)
         const token = newTokens(client)
+        console.log(token);
         reply.status(200).send({client,token})
     }catch(err){
         reply.status(500).send({message:"sorry"})
@@ -26,6 +27,7 @@ const login = async (req,reply)=>{
         let match = client.checkPassword(req.body.password)
         if(!match) reply.status(400).send({message:'please check your password'})
         const token = newTokens(match)
+        console.log(token);
         reply.status(200).send({client,token})
     }catch(err){
         reply.status(500).send({message:'sorry'})
