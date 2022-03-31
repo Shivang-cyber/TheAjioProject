@@ -14,24 +14,33 @@ function navbar() {
             <div id="backdrop" onClick="cl()"></div>
             <div id="bd">
             <section id="sec_a">
-            <i><button onClick="cl()" id="x"><i class="fa-solid fa-x"></i></button></i>
+            <i><button onClick="cl()" class="x"><i class="fa-solid fa-x"></i></button></i>
             <h1>Welcome to AJIO</h1>
             <h3>Join / Sign In using</h3>
-            <div><button onClick="cl()" id="fac"><i class="fa-brands fa-facebook-square"></i> FACEBOOK</button><button onClick="cl()" id="goo"><i class="fa-brands fa-google"></i> GOOGLE</button></div>
+            <div><button onClick="cl()" id="fac"><i class="fa-brands fa-facebook-square"></i> FACEBOOK</button><button onClick="gg()" id="goo"><i class="fa-brands fa-google"></i> GOOGLE</button></div>
             <p>or</p>
-            <h3>Enter Mobile Number / Email*</h3>
-            <input />
+            <h3>Enter Email*</h3>
+            <input id="emai" required />
             <h5><button onClick="mv()" id="sub_mov">CONTINUE</button></h5>
             <h4>By Signing In, I agree to <p> Terms and Conditions.</p></h4>
             </section>
             <section id="sec_b">
-            <div></div>
+            <i><button onClick="cl()" class="x"><i class="fa-solid fa-x"></i></button></i>
+            <p></p>
+            <h3>Enter Name*</h3>
+            <input id="namae"  class="in" />
+            <h3>Enter Mobile Number*</h3>
+            <input id="bango"  class="in" />
+            <h3>Enter Address*</h3>
+            <input  id="addre" class="in" />
+            <h3>Enter Password*</h3>
+            <input id="pass"  class="in" />
+            <button id="su" onClick="subm()" >SUBMIT</button>
             </section>
-
             </div>
               <a href="#" style="color: rgb(44, 65, 82)" id="sign_in_in" onClick="signUp()">Sign In / Join AJIO</a>
-              <a href="" style="color: rgb(44, 65, 82)">Customer Care</a>
-              <a href="" id="luxe">Visit AJIOLUXE</a>
+              <a href="#" style="color: rgb(44, 65, 82)">Customer Care</a>
+              <a href="#" id="luxe">Visit AJIOLUXE</a>
             </div>
             <div id="bot_bl_nav">
               <div>
