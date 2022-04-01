@@ -54,6 +54,7 @@
   display: flex;
   justify-content: flex-end;
 }
+
 #top_bl_nav > a {
   height: 100%;
   padding: 0 10px 0 10px;
@@ -61,6 +62,24 @@
   font-size: 13px;
   letter-spacing: 1px;
   /* color: black; */
+}
+#sign_up{
+  height: 100%;
+  padding: 0 10px 0 10px;
+  line-height: 40px;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+#signed_up{
+  display: none;
+  height: 100%;
+  padding: 0 10px 0 10px;
+  line-height: 40px;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+#us_na{
+  margin-right: 15px;
 }
 #luxe {
   background-color: black;
