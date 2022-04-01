@@ -4,7 +4,7 @@ setTimeout(function(){
     document.getElementById("sign_in_in").innerText=retrievedObject.client.details.name
 }, 5000)
 if(retrievedObject==undefined||retrievedObject=={}){
-    
+
 }
 function signUp() {
  document.getElementById("bd").style.display = "block"
@@ -32,7 +32,7 @@ let A =  document.getElementById("addre").value
 let P =  document.getElementById("pass").value
 let data={mail:E,password:P,details:{name:N,mob:M,address:P}}
 console.log(data);
-const url = 'http://ajio-re.herokuapp.com/register'
+const url = 'https://ajio-re.herokuapp.com/register'
 
 const param = {
 method : 'Post' , 
