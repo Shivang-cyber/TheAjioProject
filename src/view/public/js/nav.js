@@ -229,8 +229,8 @@ function navbar() {
                   type="text"
                   style="font-family: Arial, FontAwesome"
                 />
-                <a href=""><img src="/view/stuff/images/2.png" alt="" /></a>
-                <a href=""><img src="/view/stuff/images/1.png" alt="" /></a>
+                <a href="/cart"><img src="/view/stuff/images/2.png" alt="" /></a>
+                <a href="/cart"><img src="/view/stuff/images/1.png" alt="" /></a>
               </div>
               </div>
               </div>

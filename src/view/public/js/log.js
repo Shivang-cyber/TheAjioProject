@@ -1,4 +1,13 @@
 let t= true
+
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+
 let retrievedObject = JSON.parse(localStorage.getItem('Object'));
 setTimeout(function(){
     document.getElementById("sign_in_in").innerText=retrievedObject.client.details.name
@@ -44,9 +53,11 @@ body : JSON.stringify(data)
 const sendRequest = await fetch(url , param)
 const response = await sendRequest.json()
 console.log(response);
+setCookie("logg", JSON.stringify(response), 1)
 localStorage.setItem('Object', JSON.stringify(response));
 document.getElementById("sign_in_in").innerText=data.details.name
 t= false
 cl()
 return response
 }
+

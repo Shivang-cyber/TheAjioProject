@@ -28,9 +28,11 @@ const getProdz = async (req, reply) => {
   let a = req.query.type.split('').slice(0,1).join('')
   let b = req.query.type.split('').slice(1,req.query.type.length).join('')
   const product = await Product.find({type:{$all:a+' '+b}}).lean().exec()
-  // console.log(product);
   reply.view('/src/view/cat.ejs', { text: product,sr:req.query.type })
+}
 
+const getCart = async(req,reply)=>{
+  reply.view('/src/view/check.ejs')
 }
 
 const getProducts = async (req, reply) => {
@@ -46,4 +48,4 @@ const addProducts = async (req, reply) => {
   reply.send({ product })
 }
 
-module.exports = { getProducts, addProducts, getAllProduct, updateProducts,getProdz }
+module.exports = { getProducts, addProducts, getAllProduct, updateProducts,getProdz,getCart }

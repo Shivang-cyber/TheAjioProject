@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="https://image.apktoy.com/img/e6/com.ril.ajio/icon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="view/public/styles/check.css">
+    <link rel="stylesheet" href="view/public/styles/nav.css" />
+
+</head>
+<body>
+    <section id="nav"></section>
+    <section id="ban_check"><img src="https://assets.ajio.com/cms/AJIO/WEB/28032021-D-cartpagebanner-relianceones.jpg" alt="#ss"></section>
+    <section id="pay_ment">
+        <div id="items_in">
+            <div><h1>My Bag <p id="item_count"></p></h1><a href="#">+ Add from Closet</a></div>
+            <div id="item_show"></div>
+        </div>
+        <div id="totes">
+            <div>
+                <div><p>What is AJIO Wallet?</p></div>
+            </div>
+            <div>
+                <div>
+                    <h3>Order Details</h3>
+                </div>
+                <div style="display: flex;justify-content: space-between;">
+                    <div>Bag total</div><div id="bg_tt"></div>
+                </div>
+                <div  style="display: flex;justify-content: space-between;">
+                    <div>Bag discount</div><div id="bg_dc"></div>
+                </div>
+                <div  style="display: flex;justify-content: space-between;">
+                    <div>Delivery</div><div style="color: #b09975;">FREE</div>
+                </div>
+                <div  style="display: flex;justify-content: space-between;">
+                    <div><b>Total Amount</b></div> <div id="tt"></div>
+                </div>
+            </div>
+
+            <button>PROCEED TO SHIPPING</button>
+        </div>
+    </section>
+    <button onclick="setCookie('Atoken','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Im1haWwiOiJhQGIuY29tIiwicGFzc3dvcmQiOiIkMmEkMDgkdy5HOEVpU0kwWks5RllDazNDQmsuLjBKSjRWZjJPMXp4Y2RCVnlhZ2tRY3hNbnFjSklWU2kiLCJkZXRhaWxzIjp7Im5hbWUiOiJzaG92IiwibW9iIjoiOTg3NjU0MzIxIiwiYWRkcmVzcyI6ImFzamRzdmwifSwiX2lkIjoiNjI0NTMwY2U0ZTk1MjkxYzM3M2ZiYjIxIiwiaW5fY2FydCI6W10sImxpa2VkIjpbXSwicHVyY2hhc2VkIjpbXSwiY3JlYXRlZEF0IjoiMjAyMi0wMy0zMVQwNDo0MDo0Ni43NTNaIiwidXBkYXRlZEF0IjoiMjAyMi0wMy0zMVQwNDo0MDo0Ni43NTNaIn0sImlhdCI6MTY0ODcwMTY0Nn0.cDQV6S2liDXXmR-wiXbpSJHJz91NQHj9mPFnzsv2Feo',1) ">S</button>
+    <button onclick="console.log(getCookie('Atoken'))">G</button>
+    <button onclick="console.log(checkCookie())">C</button>
+
+
+
+    <section id="sec_pay"></section>
+    <section id="easy"></section>
+</body>
+</html>
+<script src="view/public/js/det.js"></script>
+<script type="module">
+    // navbar
+    import navbar from '/view/public/js/nav.js'
+    document.getElementById('nav').innerHTML = navbar()
+  </script>

@@ -2,7 +2,8 @@ const { Client } = require('../routes/client.model')
 const { Product } = require('../routes/Product.model')
 
 const getClient = async (req, reply) => {
-  const client = await Client.find({ mail: req.params.id })
+  console.log(req);
+  const client = await Client.find({ mail: req.user.user.mail })
     .populate('in_cart.item liked.item purchased.item.item')
     .lean()
     .exec()
@@ -31,7 +32,7 @@ const updateOneClient = async (req, reply) => {
   reply.send({ client })
 }
 const addToCart = async (req, reply) => {
-  const product = await Product.find({_id:req.query.item}).lean().exec()
+  const product = await Product.find({_id:req.params.id}).lean().exec()
   const client = await Client.find({ mail: req.user.user.mail }).lean().exec()
   let arr = client[0].in_cart,t = true
   for(let i=0;i<arr.length;i++) {if(arr[i].item.toString()==product[0]._id.toString()){
