@@ -1,22 +1,15 @@
 function checkCookie() {
-    let user = getCookie("Atoken");
-    if (user != "") {
-        
-    } 
-
-}
-
-    
-
-
-let url = "http://localhost:3006/cl"
-let xhr = new XMLHttpRequest();
-xhr.open("GET", url);
-
-xhr.setRequestHeader("Accept", "application/json");
-xhr.setRequestHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Im1haWwiOiJhQGIuY29tIiwicGFzc3dvcmQiOiIkMmEkMDgkdy5HOEVpU0kwWks5RllDazNDQmsuLjBKSjRWZjJPMXp4Y2RCVnlhZ2tRY3hNbnFjSklWU2kiLCJkZXRhaWxzIjp7Im5hbWUiOiJzaG92IiwibW9iIjoiOTg3NjU0MzIxIiwiYWRkcmVzcyI6ImFzamRzdmwifSwiX2lkIjoiNjI0NTMwY2U0ZTk1MjkxYzM3M2ZiYjIxIiwiaW5fY2FydCI6W10sImxpa2VkIjpbXSwicHVyY2hhc2VkIjpbXSwiY3JlYXRlZEF0IjoiMjAyMi0wMy0zMVQwNDo0MDo0Ni43NTNaIiwidXBkYXRlZEF0IjoiMjAyMi0wMy0zMVQwNDo0MDo0Ni43NTNaIn0sImlhdCI6MTY0ODcwMTY0Nn0.cDQV6S2liDXXmR-wiXbpSJHJz91NQHj9mPFnzsv2Feo");
+    let token = getCookie("Atoken");
+    if (token != "") {
+            
+      let url = "http://ajio-re.herokuapp.com/cl"
+      let xhr = new XMLHttpRequest();
+      xhr.open("GET", url);
+      
+      xhr.setRequestHeader("Accept", "application/json");
+      xhr.setRequestHeader("Authorization", `Bearer ${token}`);
 xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
+  if (xhr.readyState === 4) {
     let in_c = []
     in_c =(JSON.parse(xhr.responseText));
     console.log(in_c.client[0].in_cart);
@@ -25,12 +18,12 @@ xhr.onreadystatechange = function () {
     it.style.alignItems="center"
     it.style.flexDirection = 'column'
     in_c.client[0].in_cart.map((a)=>{
-        let d = document.createElement("div")
-        d.style.border="1px solid #eeeeee"
-        d.style.width = "95%"
-        let d1 =document.createElement("div"),d2=document.createElement("div"),d3=document.createElement("div")
-        d.style.display='flex'
-        d.style.justifyContent='space-between'
+      let d = document.createElement("div")
+      d.style.border="1px solid #eeeeee"
+      d.style.width = "95%"
+      let d1 =document.createElement("div"),d2=document.createElement("div"),d3=document.createElement("div")
+      d.style.display='flex'
+      d.style.justifyContent='space-between'
         d.style.marginBottom="15px"
         let im = document.createElement("img")
         im.src = a.item.images[0]
@@ -64,7 +57,7 @@ xhr.onreadystatechange = function () {
         d2.style.display="flex"
         ol.style.cursor="pointer"
         il.style.cursor="pointer"
-
+        
         ol.style.fontSize="20px"
         d2.style.fontSize="20px"
         il.style.fontSize="20px"
@@ -73,12 +66,12 @@ xhr.onreadystatechange = function () {
         let totesS = ran+ +a.item.price
         h4.innerText = `Savings: Rs.  ${ran}0`
         h4.style.marginTop='2%'
-
+        
         let h3 = document.createElement("h5")
         h3.style.color = "#b09975"
         h3.innerText = `${totesS} (${ran}% Off)`
         h3.style.marginTop='2%'
-
+        
         let divs = document.createElement("div")
         let du = document.createElement("div")
         let dt = document.createElement("div")
@@ -105,7 +98,7 @@ xhr.onreadystatechange = function () {
         al.innerText="Delete"
         al.href = '#'
         //delete
-    
+        
         let el = document.createElement("button")
         el.style.backgroundColor='unset'
         el.style.border='none'
@@ -116,40 +109,43 @@ xhr.onreadystatechange = function () {
         dive.style.width='100%'
         dive.style.justifyContent='space-between'
         dive.style.marginTop='25%'
-
+        
         dive.append(al,el)
         d3.append(h4,h3,divs,dive)
         d3.style.paddingRight = "5px"
         d.append(d1,d2,d3)
         it.appendChild(d)
     })
-let c = 0
-for(let i in in_c.client[0].in_cart) c+=(+in_c.client[0].in_cart[i].item.price);
-let ran = Math.floor(Math.random()*1000)
-document.getElementById("bg_tt").innerText = `₹ ${ran+c}`
-document.getElementById("bg_dc").innerText = `-₹ ${ran}`
-document.getElementById("tt").innerText = `₹ ${c}`
-
-console.log(c);
-    }};
-    xhr.send();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    let c = 0
+    for(let i in in_c.client[0].in_cart) c+=(+in_c.client[0].in_cart[i].item.price);
+    let ran = Math.floor(Math.random()*1000)
+    document.getElementById("bg_tt").innerText = `₹ ${ran+c}`
+    document.getElementById("bg_dc").innerText = `-₹ ${ran}`
+    document.getElementById("tt").innerText = `₹ ${c}`
+    
+    console.log(c);
+  }};
+  xhr.send();
+  
+} 
+}
+checkCookie()
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 
 
