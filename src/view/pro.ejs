@@ -63,7 +63,7 @@
           <div class="advert"><img src="/view/stuff/proImg/bott_feeder.png" alt=""></div>
           <button class="but_add" id="but_add" onClick="adda()">ADD TO BAG</button>
           <h4>HANDPICKED STYLES | ASSURED QUALITY</h4>
-          <button class="but_add">SAVE TO CLOSET</button>
+          <button class="but_add" onclick="badda()">SAVE TO CLOSET</button>
           <ul><h6 id="pro_a">Product Details</h6>
             <li>Colour transfer of dark-coloured products may occur during use due to friction and when handling while wet. Wash separately. Water repellency will gradually get lost by washing or cleaning</li>
           <li>Tip : If you don't find an exact match, go for the next size</li>
@@ -85,31 +85,74 @@
     document.getElementById('nav').innerHTML = navbar()
   </script>
 <script>
-var parsed_data = "<%=JSON.stringify(text) %>"
-let a = JSON.parse(parsed_data.split('&#34;').join('"'));
-let b = document.getElementById("imgban")
-let im =document.createElement('img')
-im.setAttribute("class","fade-in")
-
-let i = 0
-setInterval(function(){ 
-if(i==a.images.length)i=0
-im.src = a.images[i]
-b.appendChild(im)
-i++
-}, 3000);
-
-a.images.forEach(function(k){
-  let imgarr = document.createElement('img')
-  imgarr.src = k
-  imgarr.onclick = function(){
-    im.src = k
-  }
-  document.querySelector('#imgarr').appendChild(imgarr)
-
-})
-console.log(a);
-function adda(params) {
   
+  var parsed_data = "<%=JSON.stringify(text) %>"
+  let a = JSON.parse(parsed_data.split('&#34;').join('"'));
+  let b = document.getElementById("imgban")
+  let im =document.createElement('img')
+  im.setAttribute("class","fade-in")
+  
+  let i = 0
+  setInterval(function(){ 
+  if(i==a.images.length)i=0
+  im.src = a.images[i]
+  b.appendChild(im)
+  i++
+  }, 3000);
+  
+  a.images.forEach(function(k){
+    let imgarr = document.createElement('img')
+    imgarr.src = k
+    imgarr.onclick = function(){
+      im.src = k
+    }
+    document.querySelector('#imgarr').appendChild(imgarr)
+  
+  })
+
+
+
+function adda() {
+  var url = `http://localhost:3006/cla/${a._id}`;
+  let At = getCookie("Atoken")
+// console.log(url);
+var xhr = new XMLHttpRequest();
+xhr.open("GET", url);
+
+xhr.setRequestHeader("Accept", "application/json");
+xhr.setRequestHeader("Authorization", `Bearer `+`${At}`);
+
+xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+      console.log(xhr.status);
+      console.log(At);
+      console.log(xhr.responseText);
+   }};
+
+xhr.send();
+alert("item added to bag")
 }
+
+function badda() {
+  var url = `http://localhost:3006/cll/${a._id}`;
+  let At = getCookie("Atoken")
+// console.log(url);
+var xhr = new XMLHttpRequest();
+xhr.open("GET", url);
+
+xhr.setRequestHeader("Accept", "application/json");
+xhr.setRequestHeader("Authorization", `Bearer `+`${At}`);
+
+xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+      console.log(xhr.status);
+      console.log(At);
+      console.log(xhr.responseText);
+   }};
+
+xhr.send();
+alert("item added to liked")
+}
+
+
 </script>

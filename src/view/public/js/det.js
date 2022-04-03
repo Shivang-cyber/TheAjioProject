@@ -1,7 +1,6 @@
 function checkCookie() {
     let token = getCookie("Atoken");
     if (token != "") {
-            console.log(token);
       let url = "http://ajio-re.herokuapp.com/cl"
       let xhr = new XMLHttpRequest();
       xhr.open("GET", url);
@@ -12,7 +11,6 @@ xhr.onreadystatechange = function () {
   if (xhr.readyState === 4) {
     let in_c = []
     in_c =(JSON.parse(xhr.responseText));
-    console.log(in_c.client[0].in_cart);
     let it = document.getElementById("item_show")
     it.style.display = 'flex'
     it.style.alignItems="center"
@@ -122,8 +120,6 @@ xhr.onreadystatechange = function () {
     document.getElementById("bg_tt").innerText = `₹ ${ran+c}`
     document.getElementById("bg_dc").innerText = `-₹ ${ran}`
     document.getElementById("tt").innerText = `₹ ${c}`
-    
-    console.log(c);
   }};
   xhr.send();
   

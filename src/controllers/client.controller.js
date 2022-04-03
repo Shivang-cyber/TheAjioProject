@@ -56,6 +56,25 @@ const addToCart = async (req, reply) => {
           .exec()
   reply.send({ clien })  
 }
+
+const addToLiked = async (req, reply) => {
+  const product = await Product.find({_id:req.params.id}).lean().exec()
+  const client = await Client.find({ mail: req.user.user.mail }).lean().exec()
+  let arr = client[0].liked,t = true
+  for(let i=0;i<arr.length;i++) {if(arr[i].item.toString()==product[0]._id.toString()){
+      t= false
+      break
+    }
+  }
+  if(t)  arr.push({item:product[0]._id})
+  client[0].liked = arr
+  const clien = await Client.findByIdAndUpdate(client[0]._id,client[0], {new: true})
+          .populate('in_cart.item liked.item purchased.item.item')
+          .lean()
+          .exec()
+  reply.send({ clien })  
+}
+
 const purchaseAll = async (req, reply) => {
   const client = await Client.find({ mail: req.user.user.mail })
     .populate('in_cart.item liked.item purchased.item.item')
@@ -103,4 +122,5 @@ module.exports = {
   updateOneClient,
   addToCart,
   purchaseAll,
+  addToLiked
 }

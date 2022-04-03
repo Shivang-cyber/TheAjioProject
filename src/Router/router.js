@@ -6,6 +6,7 @@ const {
   addProducts,
   getAllProduct,getProdz,
   updateProducts,
+  getCloset
 } = require('../controllers/Product.controller')
 const {
   getClient,
@@ -14,6 +15,7 @@ const {
   getAllClient,
   updateOneClient,
   addToCart,
+  addToLiked,
   purchaseAll,
 } = require('../controllers/client.controller')
 const {
@@ -39,6 +41,7 @@ module.exports = fp(function productRoutes(fastify, options, done) {
   fastify.get('/catologue',getProdz)
   fastify.get('/cart',getCart)
   fastify.get('/one',findClient)
+  fastify.get('/closet',getCloset)
 
   fastify.get('/prod',getProducts)
   // fastify.get('/pr/:id', getProducts)
@@ -53,6 +56,8 @@ fastify.post("/log",login)
   // fastify.post('/cl', addClient)
   fastify.patch('/cl/:id', updateOneClient)
   fastify.get('/cla/:id',{preHandler:[authenticate]}, addToCart)
+  fastify.get('/cll/:id',{preHandler:[authenticate]}, addToLiked)
+
   fastify.get('/cl',{preHandler:[authenticate]}, getClient)
   fastify.get('/pur',{preHandler:[authenticate]}, purchaseAll)
   fastify.get('/co', getAllComment)

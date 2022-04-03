@@ -1,0 +1,24 @@
+#sec_cl_b{
+    padding: 30px;  
+}
+#tagger{
+    text-align: center;
+    font-weight: 900;
+    font-size: 30px;
+}
+#sec_cl_c{
+    min-width: 1000px;
+}
+#show_s{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+#show_s>div{
+    margin: 10px;
+    text-align: center;
+}
+#show_s>div>img{
+    width: 100%;
+}

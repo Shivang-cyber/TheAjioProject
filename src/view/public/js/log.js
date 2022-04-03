@@ -136,7 +136,7 @@ CE.addEventListener('submit', function(a){
 let CG =document.getElementById("c_g") 
 CG.addEventListener('submit', function(a){
   a.preventDefault()
-  var url = "https://ajio-re.herokuapp.com";
+  var url = "https://ajio-re.herokuapp.com/register";
   
   var xhr = new XMLHttpRequest();
   xhr.open("POST", url);
@@ -150,10 +150,8 @@ CG.addEventListener('submit', function(a){
       "mob":"${a.path[0][1].value}",
       "address":"${a.path[0][2].value}"}
     }`;
-    console.log(data);
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
-        console.log(xhr.responseText);
         if(xhr.status==200){
           let res = (JSON.parse(xhr.responseText));
           setCookie("Auser",res.client.details.name,1)

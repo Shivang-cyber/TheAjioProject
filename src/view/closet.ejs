@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Closet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="https://image.apktoy.com/img/e6/com.ril.ajio/icon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="view/public/styles/closet.css">
+    <link rel="stylesheet" href="view/public/styles/nav.css" />
+
+</head>
+<body>
+    <section id="nav"></section>
+    <section id="sec_cl_b"><div id="tagger"><b>My Closet</b></div></section>
+    <section id="sec_cl_c"><div id="show_s"></div></section>
+
+
+    <section id="sec_pay"></section>
+    <section id="easy"></section>
+</body>
+</html>
+<script type="text/javascript" src="/view/public/js/log.js"></script>
+<script type="text/javascript" src="/view/public/js/closet.js"></script>
+
+
+<script type="module">
+    // navbar
+    import navbar from '/view/public/js/nav.js'
+    document.getElementById('nav').innerHTML = navbar()
+  </script>

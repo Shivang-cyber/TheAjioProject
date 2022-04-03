@@ -35,6 +35,10 @@ const getCart = async(req,reply)=>{
   reply.view('/src/view/check.ejs')
 }
 
+const getCloset = async(req,reply)=>{
+  reply.view('/src/view/closet.ejs')
+}
+
 const getProducts = async (req, reply) => {
   let a = req.query.type.split('').slice(0,1).join('')
   let b = req.query.type.split('').slice(1,req.query.type.length).join('')
@@ -48,4 +52,4 @@ const addProducts = async (req, reply) => {
   reply.send({ product })
 }
 
-module.exports = { getProducts, addProducts, getAllProduct, updateProducts,getProdz,getCart }
+module.exports = { getProducts, addProducts, getAllProduct, updateProducts,getProdz,getCart,getCloset }
