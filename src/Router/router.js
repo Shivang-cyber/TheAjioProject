@@ -9,6 +9,7 @@ const {
 } = require('../controllers/Product.controller')
 const {
   getClient,
+  findClient,
   addClient,
   getAllClient,
   updateOneClient,
@@ -37,6 +38,7 @@ module.exports = fp(function productRoutes(fastify, options, done) {
 
   fastify.get('/catologue',getProdz)
   fastify.get('/cart',getCart)
+  fastify.get('/one',findClient)
 
   fastify.get('/prod',getProducts)
   // fastify.get('/pr/:id', getProducts)
@@ -45,7 +47,7 @@ module.exports = fp(function productRoutes(fastify, options, done) {
   fastify.patch('/pr/:id', updateProducts)
   //red zone
 fastify.post("/register",register)
-fastify.post("/login",login)
+fastify.post("/log",login)
   //red zone
   fastify.get('/cl/A', getAllClient)
   // fastify.post('/cl', addClient)

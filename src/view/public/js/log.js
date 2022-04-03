@@ -5,6 +5,10 @@ function setCookie(cname,cvalue,exdays) {
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
+function delete_cookie(name) {
+  document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
 function getCookie(cname) {
   let name = cname + "=";
   let decodedCookie = decodeURIComponent(document.cookie);
@@ -21,17 +25,6 @@ function getCookie(cname) {
   return null;
 }
 
-function checkCookie() {
-  let user = getCookie("username");
-  if (user != "") {
-    alert("Welcome again " + user);
-  } else {
-     user = prompt("Please enter your name:","");
-     if (user != "" && user != null) {
-       setCookie("username", user, 30);
-     }
-  }
-}
 
 function deleteAllCookies() {
   var cookies = document.cookie.split(";");
@@ -48,6 +41,7 @@ function signOut() {
   deleteAllCookies()
   document.getElementById("signed_up").style.display='none'
   document.getElementById("sign_up").style.display='block'
+  location.reload();
 }
 
 
@@ -69,42 +63,113 @@ function mv() {
   document.getElementById("sec_a").style.display = "none"
   document.getElementById("sec_b").style.display = "block"
 }
-async function subm(){
-  let N  =  document.getElementById("namae").value
-  let M =  document.getElementById("bango").value
-  let E =  document.getElementById("emai").value
-  let A =  document.getElementById("addre").value
-  let P =  document.getElementById("pass").value
-  let data={mail:E,password:P,details:{name:N,mob:M,address:P}}
-  const url = 'https://ajio-re.herokuapp.com/register'
+
+  let At = getCookie("Atoken")
+  let Au = getCookie("Auser")
   
-  const param = {
-    method : 'Post' , 
-    headers : {
-      "content-type" : "application/json;charset = UTF-8"
-    }, 
-    body : JSON.stringify(data)
-  }
-  const sendRequest = await fetch(url , param)
-  const response = await sendRequest.json()
-  console.log(response.client);
-  setCookie("Auser",response.client.details.name,1)
-  setCookie('Atoken',response.token,1)
-  document.getElementById("us_na").innerText=data.details.name
-  cl()
-  document.getElementById("signed_up").style.display='flex'
-  document.getElementById("sign_up").style.display='none'
-  return response
-}
-
-let At = getCookie("Atoken")
-let Au = getCookie("Auser")
-
+  setTimeout(function(){
+    if(At&&Au){
+      document.getElementById("signed_up").style.display='flex'
+      document.getElementById("sign_up").style.display='none'
+      document.getElementById("us_na").innerText=Au
+    }
+  }, 5000)
 
 setTimeout(function(){
-  if(At&&Au){
+    // alert("Sup!"); 
+let CE =document.getElementById("c_e") 
+CE.addEventListener('submit', function(a){
+      a.preventDefault()
+      var url = `http://localhost:3006/one?mail=${a.path[0][0].value}`;
+      var xhr = new XMLHttpRequest();
+  xhr.open("GET", url);
+  
+  xhr.onreadystatechange = function () {
+     if (xhr.readyState === 4) {
+      if(xhr.responseText=='true'){
+        document.getElementById("c_e").style.display="none"
+        document.getElementById("emaie").value = a.path[0][0].value
+        document.getElementById("c_f").style.display="block"
+      }else{
+        setCookie("mail",a.path[0][0].value,1)
+        document.getElementById("sec_a").style.display = "none"
+        document.getElementById("sec_b").style.display = "block"
+      }
+    }};
+    xhr.send();
+  });
+  
+  let CF =document.getElementById("c_f") 
+  CF.addEventListener('submit', function(a){
+    a.preventDefault()
+    var url = "http://localhost:3006/log";
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", url);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  
+  var data = `{
+    "mail": "${a.path[0][0].value}",
+    "password":"${a.path[0][1].value}"
+  }`;
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if(xhr.status==200){
+        let res = (JSON.parse(xhr.responseText));
+        setCookie("Auser",res.client.details.name,1)
+        setCookie("Atoken",res.token,1)
+      }else{
+        let res = JSON.parse(xhr.responseText)
+        alert(res.message)
+        location.reload();
+      }
+    }};
+  
+    xhr.send(data);
+    cl()
+    setTimeout(function(){
+      document.getElementById("signed_up").style.display='flex'
+      document.getElementById("sign_up").style.display='none'
+      document.getElementById("us_na").innerText=getCookie("Auser")
+    }, 2000)
+});
+
+let CG =document.getElementById("c_g") 
+CG.addEventListener('submit', function(a){
+  a.preventDefault()
+  var url = "http://localhost:3006/register";
+  
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", url);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  let mai = getCookie("mail");
+  var data = `{
+    "mail": "${mai}",
+    "password":"${a.path[0][3].value}",
+    "details":{
+      "name":"${a.path[0][0].value}",
+      "mob":"${a.path[0][1].value}",
+      "address":"${a.path[0][2].value}"}
+    }`;
+    console.log(data);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        console.log(xhr.responseText);
+        if(xhr.status==200){
+          let res = (JSON.parse(xhr.responseText));
+          setCookie("Auser",res.client.details.name,1)
+          setCookie("Atoken",res.token,1)
+        }else{
+          let res = JSON.parse(xhr.responseText)
+           alert(res.message)
+           location.reload();
+         }
+        }};
+        
+  xhr.send(data);
+  delete_cookie("mail")
+  cl()
     document.getElementById("signed_up").style.display='flex'
     document.getElementById("sign_up").style.display='none'
-    document.getElementById("us_na").innerText=Au
-  }
-}, 5000)
+    document.getElementById("us_na").innerText=a.path[0][0].value
+  });
+}, 2000)

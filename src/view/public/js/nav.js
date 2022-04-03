@@ -10,46 +10,57 @@ function navbar() {
             />
           </div>
           <div>
-            <div id="top_bl_nav">
-            <div id="backdrop" onClick="cl()"></div>
-            <div id="bd">
-            <section id="sec_a">
-            <i><button onClick="cl()" class="x"><i class="fa-solid fa-x"></i></button></i>
-            <h1>Welcome to AJIO</h1>
-            <h3>Join / Sign In using</h3>
-            <div><button onClick="cl()" id="fac"><i class="fa-brands fa-facebook-square"></i> FACEBOOK</button><button onClick="gg()" id="goo"><i class="fa-brands fa-google"></i> GOOGLE</button></div>
-            <p>or</p>
+          <div id="top_bl_nav">
+          <div id="backdrop" onClick="cl()"></div>
+          <div id="bd">
+          <section id="sec_a">
+          <i><button onClick="cl()" class="x"><i class="fa-solid fa-x"></i></button></i>
+          <h1>Welcome to AJIO</h1>
+          <h3>Join / Sign In using</h3>
+          <div><button onClick="cl()" id="fac"><i class="fa-brands fa-facebook-square"></i> FACEBOOK</button><button onClick="gg()" id="goo"><i class="fa-brands fa-google"></i> GOOGLE</button></div>
+          <p>or</p>
+          <form action="#" id="c_e">
+              <h3>Enter Email*</h3>
+              <input id="emai" required />
+              <h3 id="pa">Enter Password*</h3>
+              <input id="passw" />
+              <input id="sub1" type="submit" value="SUBMIT">
+          </form>
+          <form action="#" id="c_f">
             <h3>Enter Email*</h3>
-            <input id="emai" required />
-            <h5><button onClick="mv()" id="sub_mov">CONTINUE</button></h5>
-            <h4>By Signing In, I agree to <p> Terms and Conditions.</p></h4>
-            </section>
-            <section id="sec_b">
-            <i><button onClick="cl()" class="x"><i class="fa-solid fa-x"></i></button></i>
-            <p></p>
-            <h3>Enter Name*</h3>
-            <input id="namae"  class="in" />
-            <h3>Enter Mobile Number*</h3>
-            <input id="bango"  class="in" />
-            <h3>Enter Address*</h3>
-            <input  id="addre" class="in" />
-            <h3>Enter Password*</h3>
-            <input id="pass"  class="in" />
-            <button id="su" onClick="subm()" >SUBMIT</button>
-            </section>
+            <input id="emaie" required />
+            <h3 id="pas">Enter Password*</h3>
+            <input id="passwo" />
+            <input id="sub2" type="submit" value="SUBMIT">
+        </form>
+          <h4>By Signing In, I agree to <p> Terms and Conditions.</p></h4>
+          </section>
+          <section id="sec_b">
+              <i><button onClick="cl()" class="x"><i class="fa-solid fa-x"></i></button></i>
+              <p></p>
+              <form action="#" id="c_g">
+                <h3>Enter Name*</h3>
+                <input id="namae"  class="in" required/>
+                <h3>Enter Mobile Number*</h3>
+                <input id="bango"  class="in" required/>
+                <h3>Enter Address*</h3>
+                <input  id="addre" class="in" required/>
+                <h3>Enter Password*</h3>
+                <input id="pass"  class="in" required/>
+                <input type="submit" value="SUBMIT">
+              </form>
+              </section>
+          </div>
+            <div id="sign_up">
+            <a href="#" style="color: rgb(44, 65, 82)" id="sign_in_in" onClick="signUp()">Sign In / Join AJIO</a>
             </div>
-              <div id="sign_up">
-              <a href="#" style="color: rgb(44, 65, 82)" id="sign_in_in" onClick="signUp()">Sign In / Join AJIO</a>
-              </div>
-              <div id="signed_up">
-              <a href="#" id="us_na"></a>
-              <a href="#" onClick="signOut()"> Sign Out</a>
-              </div>
-              
-
-              <a href="#" style="color: rgb(44, 65, 82)">Customer Care</a>
-              <a href="#" id="luxe">Visit AJIOLUXE</a>
+            <div id="signed_up">
+            <a href="#" id="us_na"></a>
+            <a href="#" onClick="signOut()"> Sign Out</a>
             </div>
+            <a href="#" style="color: rgb(44, 65, 82)">Customer Care</a>
+            <a href="#" id="luxe">Visit AJIOLUXE</a>
+          </div>
             <div id="bot_bl_nav">
               <div>
                 <div class="drop_dow">

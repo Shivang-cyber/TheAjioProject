@@ -1,8 +1,16 @@
 const { Client } = require('../routes/client.model')
 const { Product } = require('../routes/Product.model')
 
+const findClient = async (req,reply) =>{
+  const client = await Client.find({ mail: req.query.mail }).lean().exec()
+  if(client.length!=0){
+    reply.send(true)
+  }else{
+    reply.send(false)
+  }
+}
+
 const getClient = async (req, reply) => {
-  console.log(req);
   const client = await Client.find({ mail: req.user.user.mail })
     .populate('in_cart.item liked.item purchased.item.item')
     .lean()
@@ -88,6 +96,7 @@ const purchaseAll = async (req, reply) => {
 }
 
 module.exports = {
+  findClient,
   getClient,
   addClient,
   getAllClient,

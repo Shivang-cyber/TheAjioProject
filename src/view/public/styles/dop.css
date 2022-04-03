@@ -97,11 +97,13 @@ background-color: white;
   height: 740px;
   transform: translateX(-50%);
   border: #3d4f5f 1px solid;
-  display:none;
+  display: none;
   flex-direction: column;
 }
 #sec_a{
   height: 100%;
+  display:none;
+
 }
 #sec_a>div{
   display: flex;
@@ -150,7 +152,14 @@ font-size: 20px;
   text-align: center;
   margin: 10px;
 }
-#sec_a>input{
+#sec_a>form>h3{
+  width: 80%;
+  padding: 10px;
+  padding-left:10%;
+  padding-right:10%;
+  font-size: 15px;
+}
+#sec_a>form>input{
   background-color: unset;
   margin-left: 10%;
   margin-right: 10%;
@@ -185,16 +194,25 @@ font-size: 20px;
   font-weight: 900;
   letter-spacing: 1.5px;
 }
-#sec_a>h5{
+#sec_a>form>input{
   margin-left: 10%;
 }
-#sub_mov{
+#passw{
+  display: none;
+}
+#pa{
+  display: none;
+}
+#sec_a>form>input:nth-child(5){
   background-color: #d5a249;
   letter-spacing: 2px;
   font-size: 17px;
   border: none;
   width: 48%;
   height: 50px;
+}
+#c_f{
+  display: none;
 }
 #sec_b{
   height: 100%;
@@ -216,8 +234,10 @@ padding: 10px;
   margin-bottom: 25px;
   border-style: none none solid none;
 }
-
-#sec_b>h3{
+#sec_b>form{
+  margin-top: 100px;
+}
+#sec_b>form>h3{
   width: 80%;
   padding: 10px;
   padding-left:10%;
@@ -227,7 +247,7 @@ padding: 10px;
 #sec_b>p{
   margin-top: 50px;
 }
-#sec_b>button{
+#sec_b>form>input:nth-child(9){
   margin-left: 10%;
   width: 48%;
   height: 50px;
