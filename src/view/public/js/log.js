@@ -80,7 +80,7 @@ setTimeout(function(){
 let CE =document.getElementById("c_e") 
 CE.addEventListener('submit', function(a){
       a.preventDefault()
-      var url = `http://ajio-re.herokuapp.com/one?mail=${a.path[0][0].value}`;
+      var url = `https://ajio-re.herokuapp.com/one?mail=${a.path[0][0].value}`;
       var xhr = new XMLHttpRequest();
   xhr.open("GET", url);
   
@@ -102,7 +102,7 @@ CE.addEventListener('submit', function(a){
   let CF =document.getElementById("c_f") 
   CF.addEventListener('submit', function(a){
     a.preventDefault()
-    var url = "http://ajio-re.herokuapp.com/log";
+    var url = "https://ajio-re.herokuapp.com/log";
   var xhr = new XMLHttpRequest();
   xhr.open("POST", url);
   xhr.setRequestHeader("Content-Type", "application/json");
@@ -136,7 +136,7 @@ CE.addEventListener('submit', function(a){
 let CG =document.getElementById("c_g") 
 CG.addEventListener('submit', function(a){
   a.preventDefault()
-  var url = "http://ajio-re.herokuapp.com";
+  var url = "https://ajio-re.herokuapp.com";
   
   var xhr = new XMLHttpRequest();
   xhr.open("POST", url);
