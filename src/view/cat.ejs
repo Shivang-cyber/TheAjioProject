@@ -56,7 +56,7 @@
             </div>
             <div id="bottag">
             <% text.forEach(function(a){ %>
-                <div onClick="location.href='/prod?type=<%=sr%>&&id=<%=a._id%>';" style="cursor: pointer;">
+                <div onClick="location.href='/prod?id=<%=a._id%>';" style="cursor: pointer;">
                         <img src=<%=a.images[0] %> alt="">
                             <h3><%=a.brand  %></h3> 
                             <h2><%=a.name %></h2>

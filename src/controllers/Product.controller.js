@@ -25,9 +25,8 @@ const updateProducts = async (req, reply) => {
 }
 
 const getProdz = async (req, reply) => {
-  let a = req.query.type.split('').slice(0,1).join('')
-  let b = req.query.type.split('').slice(1,req.query.type.length).join('')
-  const product = await Product.find({type:{$all:a+' '+b}}).lean().exec()
+  if(req.query.type=="MJACKET") {req.query.type = 'M JACKET'}
+  const product = await Product.find({type:{$all:req.query.type}}).lean().exec()
   reply.view('/src/view/cat.ejs', { text: product,sr:req.query.type })
 }
 
@@ -40,13 +39,13 @@ const getCloset = async(req,reply)=>{
 }
 
 const getProducts = async (req, reply) => {
-  let a = req.query.type.split('').slice(0,1).join('')
-  let b = req.query.type.split('').slice(1,req.query.type.length).join('')
-  const aproduct = await Product.find({type:{$all:a+' '+b}}).lean().exec()
-
   const product = await Product.findById(req.query.id).lean().exec()
-  reply.view('/src/view/pro.ejs', { text: product,sr:req.query.type,addon:aproduct })
+  
+  const aproduct = await Product.find({type:{$all:product.type}}).lean().exec()
+
+  reply.view('/src/view/pro.ejs', { text: product,sr:req.query.type,addpn:aproduct })
 }
+
 const addProducts = async (req, reply) => {
   const product = await Product.create(req.body)
   reply.send({ product })

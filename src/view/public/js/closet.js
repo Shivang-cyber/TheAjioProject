@@ -15,11 +15,44 @@ xhr.onreadystatechange = function () {
     let div = document.getElementById("show_s")
     in_c.client[0].liked.map((a)=>{
         let di = document.createElement("div")
-        // di.setAttribute("onClick", `location.href='/prod?type=${}'`); 
         di.style.width = "305px"
         di.style.height = "480px"
         let im = document.createElement("img")
+        im.setAttribute("onClick", `location.href='/prod?id=${a.item._id}'`); 
         im.src =a.item.images[0]
+        im.style.width = "100%"
+        let dim = document.createElement("div")
+        dim.style.display="flex"
+        dim.style.justifyContent="space-between"
+        let but = document.createElement("button")
+        but.innerHTML="<img src='/view/stuff/images/1.png' style='width:180%;border-radius:20px' alt='' />"
+        but.style.border ="none"
+ 
+        // but.setAttribute("onClick", fetch(`http://localhost:3006/addc/${a.item._id}`)); 
+        // but.onClick="addc(a.item._id)"
+        // but.style.zIndex="10"
+        but.style.backgroundColor ="unset"
+        but.style.position="absolute"
+        but.style.margin='10px'
+        but.style.cursor="pointer"
+        but.style.marginTop='10px'
+        but.style.width="30px"
+        but.style.height="30px"
+        but.style.borderRadius="20px"
+        let tub = document.createElement("button")
+        tub.innerHTML=`<i class="fa-solid fa-trash-can"></i>`
+        tub.style.border ="none"
+        tub.style.fontSize="20px"
+        tub.style.backgroundColor ="unset"
+        tub.style.color='white'
+        tub.style.position="absolute"
+        tub.style.marginLeft='265px'
+        tub.style.cursor="pointer"
+        tub.style.marginTop='340px'
+        tub.style.width="30px"
+        tub.style.height="30px"
+        tub.style.borderRadius="20px"
+        dim.append(but,im,tub)
         let st = document.createElement("div")
         let h3 = document.createElement("h4")
         h3.style.color="#b19975"
@@ -53,7 +86,7 @@ xhr.onreadystatechange = function () {
         
         
         st.append(h3,h4,st1,st2)
-        di.append(im,st)
+        di.append(dim,st)
         div.append(di)
     })
   }};
@@ -63,9 +96,10 @@ xhr.onreadystatechange = function () {
 }
 checkCookie()
   
-  
-  
-  
+
+function addc(s) {
+    console.log(s);
+            }
   
   
   

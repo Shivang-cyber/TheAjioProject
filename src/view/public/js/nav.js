@@ -7,6 +7,7 @@ function navbar() {
               src="https://assets.ajio.com/static/img/Ajio-Logo.svg"
               alt=""
               id="main_lnk"
+              onClick="https://ajio-re.herokuapp.com/"
             />
           </div>
           <div>
@@ -83,6 +84,8 @@ function navbar() {
                       
                       <div>
                       <h1>WESTERN WEAR</h1>
+                     <h4> <a href="/catologue?type=MJACKET">Jackets</a></h4>
+                      <h4>  <a href="/catologue?type=MJEANS">Jeans</a></h4>
                       <h1>FOOTWEAR</h1>
                       </div>
                       <div>
