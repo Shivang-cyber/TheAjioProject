@@ -5,60 +5,100 @@ function banner() {
  <!-- full-width -->
 
  <!-- scroll -->
- <div class="full_W"></div>
- <div id="al" class="img_sl_in"></div>
-
- <section class="fix_l">
-   <div class="full">
-     <a href="">
-       <div class="cont">
-         <div class="filler"></div>
-       </div>
-     </a>
-     <a href="">
-       <div class="cont">
-         <div class="filler"></div>
-       </div>
-     </a>
-     <a href="">
-       <div class="cont">
-         <div class="filler"></div>
-       </div>
-     </a>
-     <a href="">
-       <div class="cont">
-         <div class="filler"></div>
-       </div>
-     </a>
-     <a href="">
-       <div class="cont">
-         <div class="filler"></div>
-       </div>
-     </a>
-     <a href="">
-       <div class="cont">
-         <div class="filler"></div>
-       </div>
-     </a>
-   </div>
- </section>
- <!-- scroll -->
-
- <!-- side-by-side -->
- <div>
-   <div>
-     <img src="/view/stuff/images/ban_3_a.webp" class="zoom" alt="" />
-   </div>
-   <div>
-     <img src="/view/stuff/images/ban_3_b.webp" class="zoom" alt="" />
-   </div>
- </div>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" >
+<ol class="carousel-indicators" class="banter" style="position: absolute;z-index: 20;">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" style="height:10px;width: 100px; border-radius: 20px; background-color: #e1e1e1;overflow: hidden;"><div class="aaa"></div></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1" style="height:10px;width: 100px; border-radius: 20px; background-color: #e1e1e1;overflow: hidden;"><div class="aab"></div></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2" style="height:10px;width: 100px; border-radius: 20px; background-color: #e1e1e1;overflow: hidden;"><div class="aac"></div></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="3" style="height:10px;width: 100px; border-radius: 20px; background-color: #e1e1e1;overflow: hidden;"><div class="aad"></div></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="4" style="height:10px;width: 100px; border-radius: 20px; background-color: #e1e1e1;overflow: hidden;"><div class="aae"></div></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="5" style="height:10px;width: 100px; border-radius: 20px; background-color: #e1e1e1;overflow: hidden;"><div class="aaf"></div></li>
+          </ol>
+          <div class="carousel-inner">
+          <div class="carousel-item active">
+          <img class="d-block w-100" src="/view/stuff/images/ban_2_a.jpg" alt="First slide">
+          </div>
+          <div class="carousel-item">
+          <img class="d-block w-100" src="/view/stuff/images/ban_2_b.jpg" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+          <img class="d-block w-100" src="/view/stuff/images/ban_2_c.webp" alt="Third slide">
+          </div>
+          <div class="carousel-item">
+          <img class="d-block w-100" src="/view/stuff/images/ban_2_d.jpg" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+          <img class="d-block w-100" src="/view/stuff/images/ban_2_e.webp" alt="Third slide">
+          </div> 
+          <div class="carousel-item">
+            <img class="d-block w-100" src="/view/stuff/images/ban_2_f.jpg" alt="Second slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+          </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+          </a>
+          </div>
+          
+          <!-- scroll -->
+          
+          <!-- side-by-side -->
+          <div>
+          <div>
+          <img src="/view/stuff/images/ban_3_a.webp" class="zoom" alt="" />
+          </div>
+          <div>
+          <img src="/view/stuff/images/ban_3_b.webp" class="zoom" alt="" />
+          </div>
+          </div>
  <!-- side-by-side -->
  <!-- full-width -->
  <div><img src="/view/stuff/images/ban_4.webp" class="zoom" alt="" /></div>
  <!-- full-width -->
  <!-- scroll -->
- <div></div>
+ <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" >
+ <ol class="carousel-indicators" class="banter" style="position: absolute;z-index: 20;">
+           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" style="height:10px;width: 100px; border-radius: 20px; background-color: #e1e1e1;overflow: hidden;"><div class="aaa"></div></li>
+           <li data-target="#carouselExampleIndicators" data-slide-to="1" style="height:10px;width: 100px; border-radius: 20px; background-color: #e1e1e1;overflow: hidden;"><div class="aab"></div></li>
+           <li data-target="#carouselExampleIndicators" data-slide-to="2" style="height:10px;width: 100px; border-radius: 20px; background-color: #e1e1e1;overflow: hidden;"><div class="aac"></div></li>
+           <li data-target="#carouselExampleIndicators" data-slide-to="3" style="height:10px;width: 100px; border-radius: 20px; background-color: #e1e1e1;overflow: hidden;"><div class="aad"></div></li>
+           <li data-target="#carouselExampleIndicators" data-slide-to="4" style="height:10px;width: 100px; border-radius: 20px; background-color: #e1e1e1;overflow: hidden;"><div class="aae"></div></li>
+           <li data-target="#carouselExampleIndicators" data-slide-to="4" style="height:10px;width: 100px; border-radius: 20px; background-color: #e1e1e1;overflow: hidden;"><div class="aaf"></div></li>
+           </ol>
+           <div class="carousel-inner">
+           <div class="carousel-item active">
+           <img class="d-block w-100" src="/view/stuff/images/ban_5_a.webp" alt="First slide">
+           </div>
+           <div class="carousel-item">
+           <img class="d-block w-100" src="/view/stuff/images/ban_5_b.webp" alt="Second slide">
+           </div>
+           <div class="carousel-item">
+           <img class="d-block w-100" src="/view/stuff/images/ban_5_c.webp" alt="Third slide">
+           </div>
+           <div class="carousel-item">
+           <img class="d-block w-100" src="/view/stuff/images/ban_5_d.webp" alt="Second slide">
+           </div>
+           <div class="carousel-item">
+           <img class="d-block w-100" src="/view/stuff/images/ban_5_e.webp" alt="Third slide">
+           </div> 
+           <div class="carousel-item">
+             <img class="d-block w-100" src="/view/stuff/images/ban_5_a.webp" alt="Second slide">
+             </div>
+         </div>
+         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+           <span class="sr-only">Previous</span>
+           </a>
+         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+           <span class="carousel-control-next-icon" aria-hidden="true"></span>
+           <span class="sr-only">Next</span>
+           </a>
+           </div>
+           
  <!-- scroll -->
  <!-- full-width -->
  <div><img src="/view/stuff/images/ban_6.webp" class="zoom" alt="" /></div>
@@ -201,7 +241,7 @@ function banner() {
  <div><img src="/view/stuff/images/ban_14.webp" class="zoom" alt="" /></div>
  <!-- full-width -->
  <!-- scroll -->
- <div></div>
+
  <!-- scroll -->
  <!-- full-width -->
  <div><img src="/view/stuff/images/ban_16.webp" class="zoom" alt="" /></div>

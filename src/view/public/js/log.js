@@ -130,7 +130,7 @@ CE.addEventListener('submit', function(a){
       document.getElementById("signed_up").style.display='flex'
       document.getElementById("sign_up").style.display='none'
       document.getElementById("us_na").innerText=getCookie("Auser")
-    }, 2000)
+    }, 1000)
 });
 
 let CG =document.getElementById("c_g") 
@@ -170,4 +170,4 @@ CG.addEventListener('submit', function(a){
     document.getElementById("sign_up").style.display='none'
     document.getElementById("us_na").innerText=a.path[0][0].value
   });
-}, 2000)
+}, 1000)

@@ -57,7 +57,7 @@ function navbar() {
             </div>
             <div id="signed_up">
             <a href="#" id="us_na"></a>
-            <a href="#" onClick="signOut()"> Sign Out</a>
+            <a href="#" onClick="signOut()" style="color:#2c4152"> Sign Out</a>
             </div>
             <a href="#" style="color: rgb(44, 65, 82)">Customer Care</a>
             <a href="#" id="luxe">Visit AJIOLUXE</a>

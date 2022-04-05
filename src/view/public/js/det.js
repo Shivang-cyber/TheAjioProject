@@ -1,7 +1,7 @@
 function checkCookie() {
     let token = getCookie("Atoken");
     if (token != "") {
-      let url = "http://ajio-re.herokuapp.com/cl"
+      let url = "https://ajio-re.herokuapp.com/cl"
       let xhr = new XMLHttpRequest();
       xhr.open("GET", url);
       
