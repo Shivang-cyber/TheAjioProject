@@ -38,6 +38,9 @@ const getCloset = async(req,reply)=>{
   reply.view('/src/view/closet.ejs')
 }
 
+const getChecked = async(req,reply)=>{
+  reply.view('/src/view/deli.ejs')
+}
 const getProducts = async (req, reply) => {
   const product = await Product.findById(req.query.id).lean().exec()
   
@@ -51,4 +54,4 @@ const addProducts = async (req, reply) => {
   reply.send({ product })
 }
 
-module.exports = { getProducts, addProducts, getAllProduct, updateProducts,getProdz,getCart,getCloset }
+module.exports = { getProducts, addProducts, getAllProduct, updateProducts,getProdz,getCart,getCloset,getChecked }

@@ -117,6 +117,9 @@ CE.addEventListener('submit', function(a){
         let res = (JSON.parse(xhr.responseText));
         setCookie("Auser",res.client.details.name,1)
         setCookie("Atoken",res.token,1)
+        var currentUrl = window.location.href;
+        console.log(res,currentUrl);
+        window.location.reload();
       }else{
         let res = JSON.parse(xhr.responseText)
         alert(res.message)
@@ -144,11 +147,11 @@ CG.addEventListener('submit', function(a){
   let mai = getCookie("mail");
   var data = `{
     "mail": "${mai}",
-    "password":"${a.path[0][3].value}",
+    "password":"${a.path[0][5].value}",
     "details":{
       "name":"${a.path[0][0].value}",
       "mob":"${a.path[0][1].value}",
-      "address":"${a.path[0][2].value}"}
+      "address":"${a.path[0][2].value}::${a.path[0][3].value}::${a.path[0][4].value}"}
     }`;
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {

@@ -189,3 +189,21 @@ checkCookie()
     }
 }
   
+
+function checkC() {
+  let token = getCookie("Atoken");
+  return (token=="" || token == null)?false:true
+}
+
+let butto = document.getElementById("to_check")
+butto.addEventListener("click",()=>{
+    if(checkC()){
+      location.href="/deli"
+    }else{
+      document.getElementById("backdrop").style.display="block"
+      document.getElementById("bd").style.display="block"
+      document.getElementById("sec_a").style.display="block"
+
+
+    }
+})

@@ -6,7 +6,8 @@ const {
   addProducts,
   getAllProduct,getProdz,
   updateProducts,
-  getCloset
+  getCloset,
+  getChecked
 } = require('../controllers/Product.controller')
 const {
   getClient,
@@ -42,9 +43,9 @@ module.exports = fp(function productRoutes(fastify, options, done) {
   fastify.get('/cart',getCart)
   fastify.get('/one',findClient)
   fastify.get('/closet',getCloset)
+  fastify.get('/deli',getChecked)
 
   fastify.get('/prod',getProducts)
-  // fastify.get('/pr/:id', getProducts)
   fastify.post('/pr', addProducts)
   fastify.get('/pr/A',{preHandler:[authenticate]}, getAllProduct)
   fastify.patch('/pr/:id', updateProducts)
@@ -53,16 +54,15 @@ fastify.post("/register",register)
 fastify.post("/log",login)
   //red zone
   fastify.get('/cl/A', getAllClient)
-  // fastify.post('/cl', addClient)
   fastify.patch('/cl/:id', updateOneClient)
   fastify.get('/cla/:id',{preHandler:[authenticate]}, addToCart)
   fastify.get('/cll/:id',{preHandler:[authenticate]}, addToLiked)
 
   fastify.get('/cl',{preHandler:[authenticate]}, getClient)
   fastify.get('/pur',{preHandler:[authenticate]}, purchaseAll)
-  fastify.get('/co', getAllComment)
-  fastify.post('/co', addComment)
-  fastify.patch('/co/:id', updateOneComment)
-  fastify.delete('/co/:id', deleteOneComment)
+  // fastify.get('/co', getAllComment)
+  // fastify.post('/co', addComment)
+  // fastify.patch('/co/:id', updateOneComment)
+  // fastify.delete('/co/:id', deleteOneComment)
   done() 
 })

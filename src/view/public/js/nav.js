@@ -34,7 +34,7 @@ function navbar() {
             <input id="passwo" />
             <input id="sub2" type="submit" value="SUBMIT">
         </form>
-          <h4>By Signing In, I agree to <p> Terms and Conditions.</p></h4>
+          <h4 style="width:100%">By Signing In, I agree to <p> Terms and Conditions.</p></h4>
           </section>
           <section id="sec_b">
               <i><button onClick="cl()" class="x"><i class="fa-solid fa-x"></i></button></i>
@@ -44,8 +44,12 @@ function navbar() {
                 <input id="namae"  class="in" required/>
                 <h3>Enter Mobile Number*</h3>
                 <input id="bango"  class="in" required/>
-                <h3>Enter Address*</h3>
-                <input  id="addre" class="in" required/>
+                <h3>Enter PinCode*</h3>
+                <input  id="addre1" class="in" required/>
+                <h3>Enter Address (Line - 1)*</h3>
+                <input  id="addre2" class="in" required/>
+                <h3>Enter State*</h3>
+                <input  id="addre3" class="in" required/>
                 <h3>Enter Password*</h3>
                 <input id="pass"  class="in" required/>
                 <input type="submit" value="SUBMIT">
