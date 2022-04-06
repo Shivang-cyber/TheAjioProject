@@ -4,28 +4,20 @@ const {
   getProducts,
   getCart,
   addProducts,
-  getAllProduct,getProdz,
-  updateProducts,
+  getProdz,
   getCloset,
+  getPayed,
   getChecked
 } = require('../controllers/Product.controller')
 const {
   getClient,
-  getDet,
   findClient,
-  addClient,
-  getAllClient,
   updateOneClient,
   addToCart,
   addToLiked,
   purchaseAll,
 } = require('../controllers/client.controller')
-const {
-  getAllComment,
-  addComment,
-  updateOneComment,
-  deleteOneComment,
-} = require('../controllers/comment.controller')
+
 const {register,login} = require("../controllers/auth.controller")
 const authenticate = require('../middleware/auth')
 //RED
@@ -35,7 +27,6 @@ module.exports = fp(function productRoutes(fastify, options, done) {
 
   fastify.get('/', (req, reply) => {
     if(req.user?.provider==="google"){
-
       // console.log("->",req.user);
     }
     reply.view('/src/view/index.ejs', { text: 'texdat',req:req })})
@@ -45,25 +36,19 @@ module.exports = fp(function productRoutes(fastify, options, done) {
   fastify.get('/one',findClient)
   fastify.get('/closet',getCloset)
   fastify.get('/deli',getChecked)
-  fastify.get('/det',{preHandler:[authenticate]},getDet)
+  fastify.get('/pay',getPayed)
+
   fastify.get('/prod',getProducts)
   fastify.post('/pr', addProducts)
-  fastify.get('/pr/A',{preHandler:[authenticate]}, getAllProduct)
-  fastify.patch('/pr/:id', updateProducts)
   //red zone
 fastify.post("/register",register)
 fastify.post("/log",login)
   //red zone
-  fastify.get('/cl/A', getAllClient)
   fastify.patch('/cl/:id', updateOneClient)
   fastify.get('/cla/:id',{preHandler:[authenticate]}, addToCart)
   fastify.get('/cll/:id',{preHandler:[authenticate]}, addToLiked)
 
   fastify.get('/cl',{preHandler:[authenticate]}, getClient)
   fastify.get('/pur',{preHandler:[authenticate]}, purchaseAll)
-  // fastify.get('/co', getAllComment)
-  // fastify.post('/co', addComment)
-  // fastify.patch('/co/:id', updateOneComment)
-  // fastify.delete('/co/:id', deleteOneComment)
   done() 
 })

@@ -15,26 +15,9 @@ const getClient = async (req, reply) => {
     .populate('in_cart.item liked.item purchased.item.item')
     .lean()
     .exec()
-
   reply.send({ client })
 }
 
-const getDet = async(req,reply)=>{
-  console.log(req.user);
-}
-const getAllClient = async (req, reply) => {
-  const client = await Client.find().populate('in_cart.item').lean().exec()
-  reply.send({ client })
-}
-const addClient = async (req, reply) => {
-  let a = await Client.find({ mail: req.body.mail }).lean().exec()
-  if (a.length != 0) {
-    reply.send('Already Exist')
-    return
-  }
-  const client = await Client.create(req.body)
-  reply.send({ client })
-}
 const updateOneClient = async (req, reply) => {
   const client = await Client.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
@@ -43,6 +26,7 @@ const updateOneClient = async (req, reply) => {
     .exec()
   reply.send({ client })
 }
+
 const addToCart = async (req, reply) => {
   const product = await Product.find({_id:req.params.id}).lean().exec()
   const client = await Client.find({ mail: req.user.user.mail }).lean().exec()
@@ -121,11 +105,8 @@ const purchaseAll = async (req, reply) => {
 module.exports = {
   findClient,
   getClient,
-  addClient,
-  getAllClient,
   updateOneClient,
   addToCart,
   purchaseAll,
   addToLiked,
-  getDet
 }

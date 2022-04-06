@@ -133,7 +133,9 @@ function setCookie(cname,cvalue,exdays) {
     
     
     
-    
+    document.getElementById('to_check').addEventListener("click",()=>{
+        location.href="/pay"
+    })
     
     
     
