@@ -11,6 +11,7 @@ const {
 } = require('../controllers/Product.controller')
 const {
   getClient,
+  getDet,
   findClient,
   addClient,
   getAllClient,
@@ -44,7 +45,7 @@ module.exports = fp(function productRoutes(fastify, options, done) {
   fastify.get('/one',findClient)
   fastify.get('/closet',getCloset)
   fastify.get('/deli',getChecked)
-
+  fastify.get('/det',{preHandler:[authenticate]},getDet)
   fastify.get('/prod',getProducts)
   fastify.post('/pr', addProducts)
   fastify.get('/pr/A',{preHandler:[authenticate]}, getAllProduct)

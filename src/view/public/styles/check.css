@@ -20,6 +20,17 @@
     width: 65%;
     min-width: 60%;
 }
+#ban_check>div{
+    margin: auto;
+    margin-top: 50px;
+    width: 60%;
+    height: 100px;
+    min-width: 60%;
+    display: flex;
+}
+#ban_check>div>div>h4{
+    margin-top: 10px;
+}
 #pay_ment{
     width: 100%;
     display: flex;

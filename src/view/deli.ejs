@@ -5,12 +5,96 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shipping Address</title>
-    <script src="https://kit.fontawesome.com/65118b08df.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400&display=swap" rel="stylesheet"/>
+    <link
+      rel="icon"
+      href="https://image.apktoy.com/img/e6/com.ril.ajio/icon.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="view/public/styles/nav.css" />
+     <link rel="stylesheet" href="view/public/styles/check.css" />
+    <script src="https://kit.fontawesome.com/e1c2bfd93c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="view/public/styles/deli.css" />
 
 </head>
 <body>
     <div id="nav"></div>
+    <section id="ban_c">
+        
+    </section>
+    <section id="pay_ment">
+        <div id="itemis">
+            <div class="blockead">
+                <div>
+                    <div class="ico">
+                        <img src="/view/stuff/img_for/locus.png" alt="">
+                    </div>
+                    <div class="tit_le">
+                    <h3>Delivery Address</h3>
+                    <h4 style="color: grey;">We will deliver your order to this address</h4>
+                </div>
+                </div>
+                <div id="addres1">
+                    <div id="ad1">
+                        <div id="nam_1" style="color: black"></div>
+                        <div id = "def" style="color: #b09975;margin-bottom: 10px;margin-top: 10px;">Default</div>
+                        <div id="add1"></div>
+                        <div id="add21"></div>
+                        <div id="add2"></div>
+                        <div id="add3"></div>
+                        <div id="pho"></div>
+                        <div id="ch" style="color: #176c93;margin-top: 20px;">Change Address</div>
+                    </div>
+                    <div id="adver_1">
+                        <div id="bort_1">
+                            <div>Cash on delivery available</div>
+                            <div id="delEas" style="color: black;font-weight: 500;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="blockead">
+                <div>
+                    <div class="ico">
+                        <img src="/view/stuff/img_for/ship.png" alt="">
+                    </div>
+                    <div class="tit_le">
+                        <h3>Expected Delivery</h3>
+                        <h4 style="color: grey;">Estimated Delivery dates for your order</h4>
+                    </div>
+                </div>
+                <div id="ed_del">
+                    
+                </div>
+            </div>
+        </div>
+        <div id="totes">
+            <div>
+                <div><p>What is AJIO Wallet?</p></div>
+            </div>
+            <div>
+                <div>
+                    <h3>Order Details</h3>
+                </div>
+                <div style="display: flex;justify-content: space-between;">
+                    <div>Bag total</div><div id="bg_tt"></div>
+                </div>
+                <div  style="display: flex;justify-content: space-between;">
+                    <div>Bag discount</div><div id="bg_dc"></div>
+                </div>
+                <div  style="display: flex;justify-content: space-between;">
+                    <div>Delivery</div><div style="color: #b09975;">FREE</div>
+                </div>
+                <div  style="display: flex;justify-content: space-between;">
+                    <div><b>Total Amount</b></div> <div id="tt"></div>
+                </div>
+            </div>
+
+            <button id="to_check">PROCEED TO SHIPPING</button>
+        </div>
+    </section>
 </body>
 </html>
 <script type="module">
@@ -18,5 +102,5 @@
     import navbar from '/view/public/js/nav.js'
     document.getElementById('nav').innerHTML = navbar()
   </script>
-<script type="text/javascript" src="/view/public/js/log.js"></script>
-  
+<!-- <script type="text/javascript" src="/view/public/js/log.js"></script> -->
+<script type="text/javascript" src="/view/public/js/checkO.js"></script>

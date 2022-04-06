@@ -18,6 +18,10 @@ const getClient = async (req, reply) => {
 
   reply.send({ client })
 }
+
+const getDet = async(req,reply)=>{
+  console.log(req.user);
+}
 const getAllClient = async (req, reply) => {
   const client = await Client.find().populate('in_cart.item').lean().exec()
   reply.send({ client })
@@ -122,5 +126,6 @@ module.exports = {
   updateOneClient,
   addToCart,
   purchaseAll,
-  addToLiked
+  addToLiked,
+  getDet
 }
