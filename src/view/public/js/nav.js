@@ -78,6 +78,9 @@ function navbar() {
                     <div class="drop_bot">
                       <div>
                       <h1>CLOTHING</h1>
+                      <h4>  <a href="/catologue?type=MSHOES">Shoes</a></h4>
+                      <h4>  <a href="/catologue?type=MKURTAS">Kurtas</a></h4>
+
                       <h1>FOOTWEAR & ACCESSORIES</h1>
                       <h1>INTERNATIONAL BRANDS</h1>
                       <h1>WINTERWEAR</h1>
