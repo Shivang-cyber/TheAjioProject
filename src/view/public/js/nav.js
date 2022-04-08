@@ -87,6 +87,8 @@ function navbar() {
                       <h1>NIGHT & LOUNGEWEAR</h1>
                       <h1>GROOMING</h1>
                       <h1>ETHNIC WEAR</h1>
+                     <h4> <a href="/catologue?type=MNEHRU">Nehru Jackets</a></h4>
+
                       </div>
                       
                       <div>
