@@ -97,6 +97,7 @@ function navbar() {
                       <h4>  <a href="/catologue?type=MJEANS">Jeans</a></h4>
                       <h4>  <a href="/catologue?type=MSHIRT">Shirt</a></h4>
                       <h4>  <a href="/catologue?type=MSHORTS">Shorts</a></h4>
+                      <h4>  <a href="/catologue?type=MSWEAT">Sweatshirts</a></h4>
                       <h1>FOOTWEAR</h1>
                       </div>
                       <div>
