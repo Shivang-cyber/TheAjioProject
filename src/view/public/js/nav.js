@@ -108,6 +108,7 @@ function navbar() {
                       <div>
                       <h1>ACCESSORIES</h1>
                       <h4>  <a href="/catologue?type=MSGLASS">Sunglasses</a></h4>
+                      <h4>  <a href="/catologue?type=MSHATS">Hats</a></h4>
                       <h1>PRECIOUS JWELLERY</h1>
                       <h1>INNERWEAR</h1>
                       </div>
